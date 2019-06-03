@@ -1,0 +1,36 @@
+<div class="col-md-12">
+  <br>
+
+  <div class="row">
+    
+    <div class="col-sm-4"
+      *ngFor="let todo of todos" >
+      <div class="card bg-info text-white">
+        <div class="card-header">
+          <h5 class="card-title">{{todo.descricao}}</h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Alguma descricao detalhada sobre a tarefa a fazer e seu status de andamento.</p>
+          <a href="#" (click)="onSelect(todo)" class="btn btn-light ">Ver mais</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<br>
+
+  <div class="card border-primary text-primary" *ngIf="todoSelected">
+    <div class="card-header"> 
+      <h2> Todo detail</h2>
+    </div>
+
+    <div class="card-body">
+      <h4> {{ todoSelected.descricao }} </h4>
+      <p> Por: {{ todoSelected.responsavel }} </p>
+      <p> {{ todoSelected.porcentagem }}% concluído </p>
+
+      <input class="form-control" [(ngModel)]="todoSelected.descricao" placeholder="descricao"/>
+    </div>
+  </div>
+  
+</div>
